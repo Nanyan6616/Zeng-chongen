@@ -10,10 +10,10 @@ int main()
         else if(input == 0)
         printf("helloworld\n");
         else if (input == -1)
-        
+        {
         printf("退出程序");
         break;
-        
+        }
        
         
     }
