@@ -18,7 +18,7 @@ void stop()
 
 void SendByte(char n)
 {
-    for(int i=0;i<7;i++)
+    for(int i=0;i<8;i++)
     {
         SCL_Low();
         if(n & 0x80)
