@@ -1,0 +1,5 @@
+void start()
+void stop()
+void SendByte(char n)
+char ReceiveAck()
+void SendData(char data)
