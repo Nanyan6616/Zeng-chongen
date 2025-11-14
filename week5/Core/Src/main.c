@@ -53,7 +53,10 @@ static void MX_GPIO_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
-
+uint32_t count = 0;
+uint32_t last_count = 0;
+uint32_t sum = 0;
+ float r_speed = 0.0;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -96,9 +99,7 @@ int main(void)
     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
     HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
 
-    int16_t count = 0;
-    int16_t last_count = 0;
-    int16_t sum = 0;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -125,7 +126,7 @@ int main(void)
 	      	 __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, -speed);
 
 	       }
-	       float r_speed = (sum * 60.0f * 10) / 1000.0f;
+	      r_speed = (sum * 60.0f * 10) / 1000.0f;
 	       if(HAL_GPIO_ReadPin(KEY_GPIO_Port, KEY_Pin) == GPIO_PIN_RESET)
 	       		  {
 	       			  HAL_Delay(12);
